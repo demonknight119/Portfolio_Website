@@ -12,7 +12,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { FaLinkedin, FaGithub, FaEnvelope, FaTwitter } from "react-icons/fa";
-
+import { Link as RouterLink } from "react-router-dom";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const bgColor = useColorModeValue("gray.50", "gray.900");
@@ -77,14 +77,14 @@ const Footer = () => {
               Quick Links
             </Text>
             {navLinks.map((link, index) => (
-              <Link
+              <RouterLink
                 key={index}
-                href={link.href}
+                to={link.href}
                 color={textColor}
                 _hover={{ color: "teal.500", textDecoration: "none" }}
               >
                 {link.name}
-              </Link>
+              </RouterLink>
             ))}
           </VStack>
 

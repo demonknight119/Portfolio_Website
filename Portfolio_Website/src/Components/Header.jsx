@@ -28,7 +28,11 @@ const Header = () => {
             Akhil Kumar
           </Text>
         </Heading>
-        <HStack spacing={4} ml="auto">
+        <Flex
+          spacing={4}
+          ml="auto"
+          direction={{ base: "column", md: "row", lg: "row" }}
+        >
           <Button as={RouterLink} to="/" variant="ghost">
             Home
           </Button>
@@ -45,7 +49,7 @@ const Header = () => {
             icon={colorMode == "light" ? <MoonIcon /> : <SunIcon />}
             variant="ghost"
           />
-        </HStack>
+        </Flex>
       </Flex>
     </Box>
   );
