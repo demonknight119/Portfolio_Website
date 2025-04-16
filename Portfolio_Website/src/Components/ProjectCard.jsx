@@ -30,7 +30,7 @@ const ProjectCard = ({ description, github, demo, title, tech }) => {
       <Text mb={4}>{description}</Text>
       <Stack direction="row" wrap="wrap">
         {tech.map((tag, index) => (
-          <Tag colorScheme="cyan" key={index}>
+          <Tag colorScheme="teal" key={index}>
             {tag}
           </Tag>
         ))}

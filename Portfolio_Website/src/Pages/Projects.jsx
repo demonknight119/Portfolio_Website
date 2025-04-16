@@ -32,6 +32,14 @@ const Projects = () => {
       github: "https://github.com/demonknight119/April_Hackathon",
       demo: "https://deft-dieffenbachia-fdee24.netlify.app/",
     },
+    {
+      title: "Housing Society Management System",
+      description:
+        "An Application to help facilitate renting and publishing of residential establishments",
+      tech: ["Spring Boot", "Java", "React", "HTML", "CSS", "MySQL"],
+      github:
+        "https://github.com/Sankalp-Pateriya/Housing-Society-Management-System",
+    },
   ];
   return (
     <>
