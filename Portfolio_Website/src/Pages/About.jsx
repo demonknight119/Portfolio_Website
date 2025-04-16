@@ -5,14 +5,15 @@ import {
   VStack,
   Tag,
   Wrap,
+  Link,
   WrapItem,
   Button,
   HStack,
-  Link,
   IconButton,
 } from "@chakra-ui/react";
 import { EmailIcon } from "@chakra-ui/icons";
 import { FaLinkedin } from "react-icons/fa";
+import { Link as RouterLink } from "react-router-dom";
 const skills = [
   "JavaScript",
   "React",
@@ -58,12 +59,12 @@ const About = () => {
         <HStack spacing={4}>
           <Button
             as="a"
-            href="/resume.pdf" // Replace with your actual resume path
+            href="https://drive.google.com/drive/folders/1nlhgQCa2mWK9lHTRrudfEn55utCKS1s7?usp=sharing" // Replace with your actual resume path
             target="_blank"
             colorScheme="green"
             variant="outline"
           >
-            Download Resume
+            View Resume
           </Button>
           <Link as={"a"} href="mailto:akhilkumar0024@gmail.com" isExternal>
             <IconButton
