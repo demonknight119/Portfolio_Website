@@ -1,8 +1,10 @@
 import React from "react";
 import {
+  HStack,
   SimpleGrid,
   Box,
   Heading,
+  Link,
   Text,
   Button,
   VStack,
@@ -11,7 +13,7 @@ import {
   Icon,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { FaReact, FaJava, FaGitAlt } from "react-icons/fa";
+import { FaReact, FaJava, FaGitAlt, FaPhone } from "react-icons/fa";
 import {
   SiJavascript,
   SiSpringboot,
@@ -79,6 +81,12 @@ const Home = () => {
                 Interested in working together? I'm always open to discussing
                 new projects and opportunities.
               </Text>
+              <HStack>
+                <Icon as={FaPhone} color="teal.500" />
+                <Link href="tel:9526904855" color="gray.600">
+                  9526904855
+                </Link>
+              </HStack>
               <Button
                 as="a"
                 href="mailto:akhilkumar0024@gmail.com"

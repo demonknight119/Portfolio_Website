@@ -59,7 +59,7 @@ const About = () => {
         <HStack spacing={4}>
           <Button
             as="a"
-            href="https://drive.google.com/drive/folders/1nlhgQCa2mWK9lHTRrudfEn55utCKS1s7?usp=sharing" // Replace with your actual resume path
+            href="https://drive.google.com/file/d/1QhHs2xoW-l_rfM-Tj6q_UlMV_Go1dsWu/view?usp=sharing" // Replace with your actual resume path
             target="_blank"
             colorScheme="green"
             variant="outline"
