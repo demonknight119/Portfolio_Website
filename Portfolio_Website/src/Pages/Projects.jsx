@@ -8,6 +8,7 @@ const Projects = () => {
       description: "A simple app to track expenses and manage budgets.",
       tech: ["React", "javascript", "Tailwind CSS", "Redux Toolkit"],
       github: "https://github.com/demonknight119/ExpenseManagerRTK",
+      demo: "https://quiet-kelpie-df873b.netlify.app/",
     },
     {
       title: "Nutri Scan",
