@@ -9,8 +9,10 @@ import {
   WrapItem,
   Button,
   HStack,
+  Image,
   IconButton,
 } from "@chakra-ui/react";
+import profilePicture from "../assets/githubpfp.jpeg";
 import { EmailIcon } from "@chakra-ui/icons";
 import { FaLinkedin } from "react-icons/fa";
 import { Link as RouterLink } from "react-router-dom";
@@ -30,8 +32,17 @@ const About = () => {
   return (
     <Box maxW="800px" mx="auto">
       <VStack spacing={6} align="start">
+        <Box alignSelf="center" textAlign="center">
+          <Image
+            borderRadius="full"
+            boxSize="150px"
+            src={profilePicture}
+            alt="Profile picture"
+            mx="auto"
+            p={2}
+          />
+        </Box>
         <Heading>About Me</Heading>
-
         <Text fontSize="lg">
           I’m a full-stack developer with a strong focus on building responsive,
           user-friendly web applications. I enjoy translating designs into
