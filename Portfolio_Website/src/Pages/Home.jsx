@@ -87,15 +87,26 @@ const Home = () => {
                   9526904855
                 </Link>
               </HStack>
-              <Button
-                as="a"
-                href="mailto:akhilkumar0024@gmail.com"
-                colorScheme="blue"
-                size="lg"
-                width={{ base: "full", md: "auto" }}
-              >
-                Contact Me
-              </Button>
+              <HStack>
+                <Button
+                  as="a"
+                  href="mailto:akhilkumar0024@gmail.com"
+                  colorScheme="blue"
+                  size="lg"
+                  width={{ base: "full", md: "auto" }}
+                >
+                  Contact Me
+                </Button>
+                <Button
+                  as="a"
+                  href="https://drive.google.com/file/d/1QhHs2xoW-l_rfM-Tj6q_UlMV_Go1dsWu/view?usp=sharing" // Replace with your actual resume path
+                  target="_blank"
+                  colorScheme="green"
+                  variant="outline"
+                >
+                  View Resume
+                </Button>
+              </HStack>
             </VStack>
           </Box>
         </Flex>

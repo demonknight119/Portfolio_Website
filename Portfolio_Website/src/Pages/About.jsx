@@ -15,7 +15,7 @@ import {
 import profilePicture from "../assets/githubpfp.jpeg";
 import { EmailIcon } from "@chakra-ui/icons";
 import { FaLinkedin } from "react-icons/fa";
-import { Link as RouterLink } from "react-router-dom";
+
 const skills = [
   "JavaScript",
   "React",
