@@ -99,7 +99,7 @@ const Home = () => {
                 </Button>
                 <Button
                   as="a"
-                  href="https://drive.google.com/file/d/1QhHs2xoW-l_rfM-Tj6q_UlMV_Go1dsWu/view?usp=sharing" // Replace with your actual resume path
+                  href="https://drive.google.com/file/d/1pKteU0oJTG8ulMZP66Z8AFbMGfcErg98/view?usp=sharing" // Replace with your actual resume path
                   target="_blank"
                   colorScheme="green"
                   variant="outline"
