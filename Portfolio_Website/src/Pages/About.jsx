@@ -14,7 +14,7 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { RESUME_LINk } from "../assets/resumeLink";
-import profilePicture from "../images/profilePicture.jpg";
+import profilePicture from "../images/ProfilePicture.jpg";
 import { EmailIcon } from "@chakra-ui/icons";
 import { FaLinkedin } from "react-icons/fa";
 
