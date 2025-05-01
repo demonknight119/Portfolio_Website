@@ -109,6 +109,7 @@ const Home = () => {
                 <Button
                   width={{ base: "full", md: "auto" }}
                   size={"md"}
+                  p={2}
                   as="a"
                   href={RESUME_LINk}
                   target="_blank"
