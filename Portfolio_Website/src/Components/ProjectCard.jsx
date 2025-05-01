@@ -7,8 +7,10 @@ import {
   Tag,
   Button,
   Stack,
+  Image,
+  useColorModeValue,
 } from "@chakra-ui/react";
-const ProjectCard = ({ description, github, demo, title, tech }) => {
+const ProjectCard = ({ description, github, demo, title, tech, image }) => {
   return (
     <Box
       display={"flex"}
@@ -18,12 +20,21 @@ const ProjectCard = ({ description, github, demo, title, tech }) => {
       borderWidth="1px"
       borderRadius="lg"
       p={5}
-      bg="white"
-      _dark={{ bg: "gray.800" }}
+      bg={useColorModeValue("gray.200", "gray.800")}
       shadow="md"
       _hover={{ shadow: "0 4px 10px rgba(128, 90, 213, 1)" }}
       transition="all 0.3s"
     >
+      <Box mb={4}>
+        <Image
+          p={"2px"}
+          src={image}
+          fallbackSrc="https://placehold.co/600x270"
+          border={"2px"}
+          borderColor={"yellow"}
+          borderRadius={"md"}
+        />
+      </Box>
       <Heading size="md" mb={2}>
         {title}
       </Heading>

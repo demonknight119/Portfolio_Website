@@ -1,6 +1,10 @@
 import React from "react";
 import { Box, Heading, SimpleGrid } from "@chakra-ui/react";
 import ProjectCard from "../Components/ProjectCard";
+import antiResumePlatform from "../images/Anti_Resume_Platform.png";
+import expenseManager from "../images/Expense_Manger.png";
+import nutriScan from "../images/NUtri_Scan.png";
+import casioClone from "../images/Casio_Clone.png";
 const Projects = () => {
   const projects = [
     {
@@ -9,6 +13,7 @@ const Projects = () => {
       tech: ["React", "javascript", "Tailwind CSS", "Redux Toolkit"],
       github: "https://github.com/demonknight119/ExpenseManagerRTK",
       demo: "https://quiet-kelpie-df873b.netlify.app/",
+      image: expenseManager,
     },
     {
       title: "Nutri Scan",
@@ -17,13 +22,15 @@ const Projects = () => {
       tech: ["React", "javascript", "Tailwind CSS", "MongoDb", "Express"],
       github: "https://github.com/pragatisharma21/nutri-scan/tree/akhil",
       demo: "https://nutri-scan-site.vercel.app/",
+      image: nutriScan,
     },
     {
       title: "Casio Website clone",
-      tech: ["html", "css", "javascript"],
+      tech: ["HTML", "CSS", "JavaScript"],
       description: "A website clone of casio.com",
       github: "https://github.com/demonknight119/casioClone",
       demo: "https://67a8f393b3b13ef4a8033fdd--inquisitive-bienenstitch-fc1112.netlify.app/",
+      image: casioClone,
     },
     {
       title: "Anti Resume PLatform",
@@ -32,6 +39,7 @@ const Projects = () => {
       tech: ["react", "JavaScript", "Firebase", "Chakra UI"],
       github: "https://github.com/demonknight119/April_Hackathon",
       demo: "https://deft-dieffenbachia-fdee24.netlify.app/",
+      image: antiResumePlatform,
     },
     {
       title: "Housing Society Management System",

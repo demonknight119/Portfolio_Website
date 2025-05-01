@@ -11,8 +11,10 @@ import {
   HStack,
   Image,
   IconButton,
+  Flex,
 } from "@chakra-ui/react";
-import profilePicture from "../assets/githubpfp.jpeg";
+import { RESUME_LINk } from "../assets/resumeLink";
+import profilePicture from "../images/profilePicture.jpg";
 import { EmailIcon } from "@chakra-ui/icons";
 import { FaLinkedin } from "react-icons/fa";
 
@@ -34,12 +36,13 @@ const About = () => {
       <VStack spacing={6} align="start">
         <Box alignSelf="center" textAlign="center">
           <Image
+            objectFit={"cover"}
+            objectPosition={"center 10%"}
             borderRadius="full"
-            boxSize="150px"
+            boxSize="180px"
             src={profilePicture}
             alt="Profile picture"
-            mx="auto"
-            p={2}
+            p={4}
           />
         </Box>
         <Heading>About Me</Heading>
@@ -67,10 +70,15 @@ const About = () => {
           </Wrap>
         </Box>
 
-        <HStack spacing={4}>
+        <Flex
+          gap={4}
+          flexWrap={"wrap"}
+          alignItems={"center"}
+          justifyContent={"center"}
+        >
           <Button
             as="a"
-            href="https://drive.google.com/file/d/1pKteU0oJTG8ulMZP66Z8AFbMGfcErg98/view?usp=sharing"
+            href={RESUME_LINk}
             target="_blank"
             colorScheme="green"
             variant="outline"
@@ -96,7 +104,7 @@ const About = () => {
               aria-label="LinkedIn"
             />
           </Link>
-        </HStack>
+        </Flex>
       </VStack>
     </Box>
   );

@@ -1,5 +1,11 @@
 import React from "react";
-import { Box, Text, Button, Heading } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Button,
+  Heading,
+  useColorModeValue,
+} from "@chakra-ui/react";
 
 import Header from "./Components/Header";
 import { Routes, Route } from "react-router-dom";
@@ -11,7 +17,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <Box p={10}>
+      <Box p={10} bg={useColorModeValue("gray.200", "gray.600")}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

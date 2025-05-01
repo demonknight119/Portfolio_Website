@@ -1,4 +1,5 @@
 import React from "react";
+import { RESUME_LINk } from "../assets/resumeLink";
 import {
   HStack,
   SimpleGrid,
@@ -41,7 +42,12 @@ const Home = () => {
           <Heading as="h1" size="2xl" fontWeight="bold">
             Hi, I'm Akhil
           </Heading>
-          <Text fontSize="xl" color="gray.600" maxW="800px" lineHeight="1.7">
+          <Text
+            fontSize="xl"
+            color={useColorModeValue("gray.900", "gray.100")}
+            maxW="800px"
+            lineHeight="1.7"
+          >
             A passionate full-stack developer building clean, scalable
             applications using React, Chakra UI, Java, and Spring Boot.
           </Text>
@@ -83,30 +89,35 @@ const Home = () => {
               </Text>
               <HStack>
                 <Icon as={FaPhone} color="teal.500" />
-                <Link href="tel:9526904855" color="gray.600">
+                <Link
+                  href="tel:9526904855"
+                  color={useColorModeValue("black", "white")}
+                >
                   9526904855
                 </Link>
               </HStack>
-              <HStack>
+              <Flex gap={4} flexWrap="wrap" justifyContent="center">
                 <Button
                   as="a"
                   href="mailto:akhilkumar0024@gmail.com"
                   colorScheme="blue"
-                  size="lg"
+                  size={"md"}
                   width={{ base: "full", md: "auto" }}
                 >
                   Contact Me
                 </Button>
                 <Button
+                  width={{ base: "full", md: "auto" }}
+                  size={"md"}
                   as="a"
-                  href="https://drive.google.com/file/d/1pKteU0oJTG8ulMZP66Z8AFbMGfcErg98/view?usp=sharing" // Replace with your actual resume path
+                  href={RESUME_LINk}
                   target="_blank"
                   colorScheme="green"
                   variant="outline"
                 >
                   View Resume
                 </Button>
-              </HStack>
+              </Flex>
             </VStack>
           </Box>
         </Flex>
