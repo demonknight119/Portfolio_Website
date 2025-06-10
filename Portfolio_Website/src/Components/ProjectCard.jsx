@@ -2,82 +2,134 @@ import React from "react";
 import {
   Box,
   Heading,
-  HStack,
   Text,
   Tag,
   Button,
-  Stack,
+  VStack,
+  HStack,
   Image,
   useColorModeValue,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
+
 const ProjectCard = ({ description, github, demo, title, tech, image }) => {
+  const cardBg = useColorModeValue("white", "gray.800");
+  const borderColor = useColorModeValue("gray.200", "gray.600");
+  const headingColor = useColorModeValue("gray.900", "white");
+  const textColor = useColorModeValue("gray.600", "gray.300");
+
   return (
     <Box
-      display={"flex"}
-      flexDirection={"column"}
-      justifyContent={"space-between"}
-      height={"100%"}
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-between"
+      height="100%"
       borderWidth="1px"
-      borderRadius="lg"
-      p={5}
-      bg={useColorModeValue("gray.200", "gray.800")}
-      shadow="md"
-      _hover={{ shadow: "0 4px 10px rgba(128, 90, 213, 1)" }}
-      transition="all 0.3s"
+      borderColor={borderColor}
+      borderRadius="xl"
+      overflow="hidden"
+      bg={cardBg}
+      boxShadow="md"
+      transition="all 0.3s ease"
+      _hover={{
+        transform: "translateY(-4px)",
+        boxShadow: "xl",
+        borderColor: "teal.300",
+      }}
     >
-      <Box mb={4}>
-        <Image
-          p={"2px"}
-          src={image}
-          fallbackSrc="https://placehold.co/600x270"
-          border={"2px"}
-          borderColor={"yellow"}
-          borderRadius={"md"}
-        />
-      </Box>
-      <Heading size="md" mb={2}>
-        {title}
-      </Heading>
-      <Text mb={4}>{description}</Text>
-      <Stack direction="row" wrap="wrap">
-        {tech.map((tag, index) => (
-          <Tag colorScheme="teal" key={index}>
-            {tag}
-          </Tag>
-        ))}
-      </Stack>
-      {(github || demo) && (
-        <HStack spacing={4} mt={6}>
-          {github && (
-            <Button
-              width={"full"}
-              as="a"
-              target="_blank"
-              rel="noopener noreferrer"
-              colorScheme="purple"
-              variant="outline"
-              size="md"
-              href={github}
-            >
-              Github
-            </Button>
-          )}
-          {demo && (
-            <Button
-              as="a"
-              width={"full"}
-              href={demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              colorScheme="teal"
-              variant="outline"
-              size="md"
-            >
-              Demo
-            </Button>
-          )}
-        </HStack>
+      {/* Project Image */}
+      {image && (
+        <Box position="relative" overflow="hidden">
+          <Image
+            src={image}
+            alt={`${title} preview`}
+            fallbackSrc="https://via.placeholder.com/400x200/E2E8F0/718096?text=Project+Image"
+            w="100%"
+            h="200px"
+            objectFit="cover"
+            transition="transform 0.3s ease"
+            _hover={{ transform: "scale(1.05)" }}
+          />
+        </Box>
       )}
+
+      {/* Card Content */}
+      <VStack spacing={4} p={6} align="stretch" flex="1">
+        {/* Title */}
+        <Heading size="md" color={headingColor} noOfLines={2}>
+          {title}
+        </Heading>
+
+        {/* Description */}
+        <Text
+          color={textColor}
+          fontSize="sm"
+          lineHeight="1.6"
+          noOfLines={3}
+          flex="1"
+        >
+          {description}
+        </Text>
+
+        {/* Tech Stack */}
+        <Box>
+          <Wrap spacing={2}>
+            {tech.map((technology, index) => (
+              <WrapItem key={index}>
+                <Tag
+                  colorScheme="teal"
+                  size="sm"
+                  variant="subtle"
+                  borderRadius="full"
+                >
+                  {technology}
+                </Tag>
+              </WrapItem>
+            ))}
+          </Wrap>
+        </Box>
+
+        {/* Action Buttons */}
+        {(github || demo) && (
+          <HStack spacing={3} pt={2}>
+            {github && (
+              <Button
+                as="a"
+                href={github}
+                target="_blank"
+                rel="noopener noreferrer"
+                colorScheme="gray"
+                variant="outline"
+                size="sm"
+                flex="1"
+                _hover={{
+                  colorScheme: "teal",
+                  transform: "translateY(-1px)",
+                }}
+              >
+                GitHub
+              </Button>
+            )}
+            {demo && (
+              <Button
+                as="a"
+                href={demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                colorScheme="teal"
+                size="sm"
+                flex="1"
+                _hover={{
+                  transform: "translateY(-1px)",
+                }}
+              >
+                Live Demo
+              </Button>
+            )}
+          </HStack>
+        )}
+      </VStack>
     </Box>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { RESUME_LINk } from "../assets/resumeLink";
+import { RESUME_LINK } from "../assets/resumeLink";
 import {
   HStack,
   SimpleGrid,
@@ -23,28 +23,38 @@ import {
 } from "react-icons/si";
 
 const Home = () => {
-  const bg = useColorModeValue("gray.100", "gray.900");
+  const bg = useColorModeValue("gray.50", "gray.900");
+  const cardBg = useColorModeValue("white", "gray.800");
+  const textColor = useColorModeValue("gray.700", "gray.300");
+  const headingColor = useColorModeValue("gray.900", "white");
 
   const skills = [
-    { icon: SiJavascript, label: "JavaScript", color: "yellow.300" },
-    { icon: FaReact, label: "React", color: "teal" },
-    { icon: SiChakraui, label: "Chakra UI", color: "cyan.400" },
-    { icon: SiFirebase, label: "Firebase", color: "orange" },
-    { icon: FaJava, label: "Java", color: "red" },
-    { icon: SiSpringboot, label: "Spring Boot", color: "green" },
-    { icon: FaGitAlt, label: "Git", color: "purple" },
+    { icon: SiJavascript, label: "JavaScript", color: "yellow.400" },
+    { icon: FaReact, label: "React", color: "blue.400" },
+    { icon: SiChakraui, label: "Chakra UI", color: "teal.400" },
+    { icon: SiFirebase, label: "Firebase", color: "orange.400" },
+    { icon: FaJava, label: "Java", color: "red.500" },
+    { icon: SiSpringboot, label: "Spring Boot", color: "green.500" },
+    { icon: FaGitAlt, label: "Git", color: "orange.600" },
   ];
 
   return (
-    <Box minH="100vh" bg={bg}>
-      <Container maxW="1200px" py={16}>
-        <VStack spacing={8} align="flex-start" mb={16} px={4}>
-          <Heading as="h1" size="2xl" fontWeight="bold">
-            Hi, I'm Akhil
+    <Box minH="100vh" bg={bg} pt={{ base: "120px", md: "140px" }}>
+      <Container maxW="1200px" py={8}>
+        {/* Hero Section */}
+        <VStack spacing={6} align="flex-start" mb={16} px={4}>
+          <Heading
+            as="h1"
+            size={{ base: "xl", md: "2xl" }}
+            fontWeight="bold"
+            color={headingColor}
+            lineHeight="1.2"
+          >
+            Hi, I'm Akhil Kumar
           </Heading>
           <Text
-            fontSize="xl"
-            color={useColorModeValue("gray.900", "gray.100")}
+            fontSize={{ base: "lg", md: "xl" }}
+            color={textColor}
             maxW="800px"
             lineHeight="1.7"
           >
@@ -60,65 +70,89 @@ const Home = () => {
           gap={10}
           px={4}
         >
+          {/* Skills Section */}
           <Box w={{ base: "100%", lg: "60%" }}>
-            <Heading as="h2" size="lg" mb={8}>
+            <Heading as="h2" size="lg" mb={8} color={headingColor}>
               My Tech Stack
             </Heading>
-            <SimpleGrid columns={{ base: 2, sm: 3, md: 4 }} spacing={8} mb={8}>
+            <SimpleGrid columns={{ base: 2, sm: 3, md: 4 }} spacing={6} mb={8}>
               {skills.map((skill, index) => (
-                <VStack key={index} spacing={3} align="center">
-                  <Icon as={skill.icon} boxSize={10} color={skill.color} />
-                  <Text fontWeight="medium">{skill.label}</Text>
+                <VStack
+                  key={index}
+                  spacing={3}
+                  align="center"
+                  p={4}
+                  borderRadius="lg"
+                  bg={cardBg}
+                  boxShadow="sm"
+                  transition="all 0.2s"
+                  _hover={{
+                    transform: "translateY(-2px)",
+                    boxShadow: "md",
+                  }}
+                >
+                  <Icon as={skill.icon} boxSize={8} color={skill.color} />
+                  <Text fontWeight="medium" fontSize="sm" color={textColor}>
+                    {skill.label}
+                  </Text>
                 </VStack>
               ))}
             </SimpleGrid>
           </Box>
 
+          {/* Contact Card */}
           <Box
             w={{ base: "100%", lg: "35%" }}
-            bg={useColorModeValue("white", "gray.700")}
+            bg={cardBg}
             p={8}
-            borderRadius="lg"
-            boxShadow="md"
+            borderRadius="xl"
+            boxShadow="lg"
+            border="1px"
+            borderColor={useColorModeValue("gray.200", "gray.600")}
           >
             <VStack spacing={6} align="flex-start">
-              <Heading size="lg">Let's collaborate</Heading>
-              <Text fontSize="md" colorScheme="gray.600">
+              <Heading size="lg" color={headingColor}>
+                Let's Collaborate
+              </Heading>
+              <Text fontSize="md" color={textColor} lineHeight="1.6">
                 Interested in working together? I'm always open to discussing
                 new projects and opportunities.
               </Text>
-              <HStack>
+              <HStack spacing={3}>
                 <Icon as={FaPhone} color="teal.500" />
                 <Link
-                  href="tel:9526904855"
-                  color={useColorModeValue("black", "white")}
+                  href="tel:+919526904855"
+                  color={useColorModeValue("teal.600", "teal.300")}
+                  fontWeight="medium"
+                  _hover={{ textDecoration: "underline" }}
                 >
-                  9526904855
+                  +91 9526904855
                 </Link>
               </HStack>
-              <Flex gap={4} flexWrap="wrap" justifyContent="center">
+              <VStack spacing={3} w="full">
                 <Button
                   as="a"
                   href="mailto:akhilkumar0024@gmail.com"
                   colorScheme="blue"
-                  size={"md"}
-                  width={{ base: "full", md: "auto" }}
+                  size="md"
+                  width="full"
+                  leftIcon={<Icon as={FaPhone} />}
                 >
                   Contact Me
                 </Button>
                 <Button
-                  width={{ base: "full", md: "auto" }}
-                  size={"md"}
-                  p={2}
                   as="a"
-                  href={RESUME_LINk}
+                  href={RESUME_LINK}
                   target="_blank"
+                  rel="noopener noreferrer"
                   colorScheme="green"
                   variant="outline"
+                  size="md"
+                  width="full"
                 >
                   View Resume
                 </Button>
-              </Flex>
+              </VStack>
             </VStack>
           </Box>
         </Flex>

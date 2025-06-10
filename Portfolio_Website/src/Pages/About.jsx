@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Heading,
@@ -8,12 +9,13 @@ import {
   Link,
   WrapItem,
   Button,
-  HStack,
   Image,
   IconButton,
   Flex,
+  Container,
+  useColorModeValue,
 } from "@chakra-ui/react";
-import { RESUME_LINk } from "../assets/resumeLink";
+import { RESUME_LINK } from "../assets/resumeLink";
 import profilePicture from "../images/ProfilePicture.jpg";
 import { EmailIcon } from "@chakra-ui/icons";
 import { FaLinkedin } from "react-icons/fa";
@@ -28,41 +30,80 @@ const skills = [
   "Git",
   "REST APIs",
   "Responsive Design",
+  "Redux Toolkit",
+  "MySQL",
+  "MongoDB",
 ];
 
 const About = () => {
+  const headingColor = useColorModeValue("gray.900", "white");
+  const textColor = useColorModeValue("gray.700", "gray.300");
+
   return (
-    <Box maxW="800px" mx="auto">
-      <VStack spacing={6} align="start">
+    <Container maxW="800px" px={4}>
+      <VStack spacing={8} align="stretch">
+        {/* Profile Picture */}
         <Box alignSelf="center" textAlign="center">
           <Image
-            objectFit={"cover"}
-            objectPosition={"center 10%"}
+            objectFit="cover"
+            objectPosition="center"
             borderRadius="full"
-            boxSize="180px"
+            boxSize="200px"
             src={profilePicture}
-            alt="Profile picture"
-            p={4}
+            alt="Akhil Kumar - Full Stack Developer"
+            border="4px"
+            borderColor={useColorModeValue("white", "gray.700")}
+            boxShadow="xl"
           />
         </Box>
-        <Heading>About Me</Heading>
-        <Text fontSize="lg">
-          I’m a full-stack developer with a strong focus on building responsive,
-          user-friendly web applications. I enjoy translating designs into
-          functional interfaces and developing robust backend systems. On the
-          frontend, I specialize in React and Chakra UI. For backend
-          development, I work with Java and Spring Boot to build scalable,
-          API-driven architectures.
-        </Text>
 
-        <Box>
-          <Heading size="md" mb={2}>
-            Core Skills
+        {/* About Section */}
+        <VStack spacing={6} align="stretch">
+          <Heading as="h2" size="xl" textAlign="center" color={headingColor}>
+            About Me
           </Heading>
-          <Wrap>
+
+          <Text
+            fontSize="lg"
+            lineHeight="1.8"
+            color={textColor}
+            textAlign="center"
+          >
+            I'm a passionate full-stack developer with expertise in building
+            responsive, user-friendly web applications. I specialize in
+            translating complex designs into functional, scalable solutions that
+            deliver exceptional user experiences.
+          </Text>
+
+          <Text
+            fontSize="lg"
+            lineHeight="1.8"
+            color={textColor}
+            textAlign="center"
+          >
+            On the frontend, I leverage React and modern JavaScript to create
+            dynamic interfaces, while my backend expertise with Java and Spring
+            Boot enables me to develop robust, API-driven architectures that
+            scale with business needs.
+          </Text>
+        </VStack>
+
+        {/* Skills Section */}
+        <Box>
+          <Heading size="lg" mb={6} textAlign="center" color={headingColor}>
+            Technical Skills
+          </Heading>
+          <Wrap justify="center" spacing={3}>
             {skills.map((skill, idx) => (
               <WrapItem key={idx}>
-                <Tag size="lg" colorScheme="cyan">
+                <Tag
+                  size="lg"
+                  colorScheme="teal"
+                  variant="subtle"
+                  borderRadius="full"
+                  px={4}
+                  py={2}
+                >
                   {skill}
                 </Tag>
               </WrapItem>
@@ -70,43 +111,59 @@ const About = () => {
           </Wrap>
         </Box>
 
+        {/* Action Buttons */}
         <Flex
           gap={4}
-          flexWrap={"wrap"}
-          alignItems={"center"}
-          justifyContent={"center"}
+          flexWrap="wrap"
+          alignItems="center"
+          justifyContent="center"
+          pt={4}
         >
           <Button
             as="a"
-            href={RESUME_LINk}
+            href={RESUME_LINK}
             target="_blank"
+            rel="noopener noreferrer"
             colorScheme="green"
-            variant="outline"
+            variant="solid"
+            size="lg"
+            minW="140px"
           >
             View Resume
           </Button>
-          <Link as={"a"} href="mailto:akhilkumar0024@gmail.com" isExternal>
+
+          <Link
+            href="mailto:akhilkumar0024@gmail.com"
+            isExternal
+            _hover={{ textDecoration: "none" }}
+          >
             <IconButton
               icon={<EmailIcon />}
               colorScheme="red"
               variant="outline"
-              aria-label="Email"
+              size="lg"
+              aria-label="Send Email"
+              _hover={{ transform: "translateY(-2px)" }}
             />
           </Link>
+
           <Link
             href="https://www.linkedin.com/in/akhil-kumar-s-48b17048/"
             isExternal
+            _hover={{ textDecoration: "none" }}
           >
             <IconButton
               icon={<FaLinkedin />}
               colorScheme="blue"
               variant="outline"
-              aria-label="LinkedIn"
+              size="lg"
+              aria-label="LinkedIn Profile"
+              _hover={{ transform: "translateY(-2px)" }}
             />
           </Link>
         </Flex>
       </VStack>
-    </Box>
+    </Container>
   );
 };
 

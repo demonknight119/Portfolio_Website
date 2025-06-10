@@ -1,6 +1,5 @@
+import React from "react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { Link as RouterLink } from "react-router-dom";
-
 import {
   Flex,
   Box,
@@ -11,45 +10,96 @@ import {
   useColorMode,
   useColorModeValue,
   HStack,
+  useBreakpointValue,
 } from "@chakra-ui/react";
-
-import React from "react";
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const bg = useColorModeValue("gray.100", "gray.900");
-  const nameColor = useColorModeValue("blue.500", "blue.300");
+  const bg = useColorModeValue(
+    "rgba(247, 250, 252, 0.8)",
+    "rgba(26, 32, 44, 0.8)"
+  );
+  const nameColor = useColorModeValue("teal.600", "teal.300");
+  const borderColor = useColorModeValue("gray.200", "gray.600");
+
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerOffset = 100;
+      const elementPosition = element.offsetTop;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <Box bg={bg} px={4} py={6} boxShadow="md">
-      <Flex align="center" justify="space-between" px={8}>
-        <Heading>
-          Crafted in Code by{" "}
-          <Text color={nameColor} as={"span"}>
+    <Box
+      bg={bg}
+      backdropFilter="blur(10px)"
+      borderBottom="1px"
+      borderColor={borderColor}
+      position="fixed"
+      width="100%"
+      zIndex={1000}
+      top={0}
+    >
+      <Flex
+        align="center"
+        justify="space-between"
+        px={6}
+        py={4}
+        maxW="1200px"
+        mx="auto"
+      >
+        {/* Logo/Name */}
+        <Heading size={isMobile ? "sm" : "md"} fontWeight="bold">
+          {!isMobile && "Crafted in Code by "}
+          <Text color={nameColor} as="span">
             Akhil Kumar
           </Text>
         </Heading>
-        <Flex
-          spacing={4}
-          ml="auto"
-          direction={{ base: "column", md: "row", lg: "row" }}
-        >
-          <Button as={RouterLink} to="/" variant="ghost">
+
+        {/* Navigation */}
+        <HStack spacing={2}>
+          <Button
+            onClick={() => scrollToSection("home")}
+            variant="ghost"
+            size="sm"
+            _hover={{ bg: useColorModeValue("teal.50", "teal.900") }}
+          >
             Home
           </Button>
-          <Button as={RouterLink} to="/projects" variant="ghost">
+          <Button
+            onClick={() => scrollToSection("projects")}
+            variant="ghost"
+            size="sm"
+            _hover={{ bg: useColorModeValue("teal.50", "teal.900") }}
+          >
             Projects
           </Button>
-          <Button as={RouterLink} to="/about" variant="ghost">
+          <Button
+            onClick={() => scrollToSection("about")}
+            variant="ghost"
+            size="sm"
+            _hover={{ bg: useColorModeValue("teal.50", "teal.900") }}
+          >
             About
           </Button>
-
           <IconButton
             onClick={toggleColorMode}
             aria-label="Toggle color mode"
-            icon={colorMode == "light" ? <MoonIcon /> : <SunIcon />}
+            icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
             variant="ghost"
+            size="sm"
+            _hover={{ bg: useColorModeValue("teal.50", "teal.900") }}
           />
-        </Flex>
+        </HStack>
       </Flex>
     </Box>
   );
